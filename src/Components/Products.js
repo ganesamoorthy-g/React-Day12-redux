@@ -1,4 +1,4 @@
-// Products.js
+
 
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
@@ -6,13 +6,23 @@ import Cart from './Cart';
 import { useDispatch } from 'react-redux';
 import { addNewProducts, removeProduct } from '../Redux/Reducers/ServicesSlice';
 
+
+
+
+
 function Products() {
   const dispatch = useDispatch();
   const [products, setProducts] = useState(null);
   const [cart, setCart] = useState([]);
 
+
+
+
+
+
+
   useEffect(() => {
-    fetch('http://localhost:3000/mocks/products.json')
+    fetch(`./mocks/products.json`)
       .then((response) => response.json())
       .then((result) => {
         setProducts(result.data);
@@ -66,7 +76,7 @@ function Products() {
           handleAddToCart={handleAddToCart}
           isAddedToCart={findAddedToCart(d?.id)}
           handleQuantity={handleQuantity}
-          handleRemove={handleRemove} // Pass the handleRemove function
+          handleRemove={handleRemove} 
         />
       ))}
     </div>
